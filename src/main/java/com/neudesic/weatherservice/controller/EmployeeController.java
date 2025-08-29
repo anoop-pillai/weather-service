@@ -30,6 +30,12 @@ public class EmployeeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PutMapping("/{id}")
+    @CrossOrigin
+    public ResponseEntity<Employee> update(@RequestBody Employee employee,@PathVariable String id) {
+        return ResponseEntity.ok(employeeService.update(employee,id));
+    }
+
     @CrossOrigin
     @PostMapping
     public ResponseEntity<Employee> create(@RequestBody Employee employee) {

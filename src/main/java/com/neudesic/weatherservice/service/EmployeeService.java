@@ -24,8 +24,11 @@ public class EmployeeService {
     public Optional<Employee> getEmployee(String id) {
         return Optional.ofNullable(employeeMap.get(id));
     }
-    public Employee update(Employee employee) {
-        employeeMap.put(employee.getId(), employee);
+    public Employee update(Employee employee,String path) {
+        if (path.equals(employee.getId())){
+            employeeMap.put(employee.getId(), employee);
+        }
+
         return employee;
     }
 
